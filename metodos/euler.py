@@ -37,7 +37,7 @@ def nDigitsFib(n):
 
 def pDiv(n):
 	if(prime(n)):
-		return [[n], [1]]
+		return [[n]]
 	else:
 		pDiv = []
 		nDiv = []
@@ -72,7 +72,22 @@ def nDiv( heh):
 		a += 1
 	return total
 
-
+#Da los divisores de un numero.
+def div(n):
+	rta = pDiv(n)
+	div = [1]
+	primo = 0
+	while(primo < len(rta[0])):
+		pos = primo
+		while(pos <len(rta[1])):
+			it = 0; val = 1
+			while(it < rta[1][pos]):
+				val = val * rta[0][pos]
+				div.append(val)
+				it +=1
+			pos += 1
+		primo +=1
+	return div
 
 def eu12():
 	q = 3
@@ -85,21 +100,21 @@ def eu12():
 		print("vamos en la posicion %d, el numero %d, con %d divisores" %(q, a, div))
 	print("la respuesta es el %d, con %d divisores" %(a,div))
 
+#Da el numero de divisores.
 def dir(n):
 	return nDiv(pDiv(n)[1])
 
 
+def coll(n):
+	if(n%2==0):
+		return n/2
+	else:
+		return 3*n+1
 
-print dir(20)
-print dir(28)
-eu12()
+def secColl(n):
+	rta = [n]
+	while(n>1):
+		n = coll(n)
+		rta.append(n)
+	return rta
 
-
-
-
-
-
-
-
-
-	
