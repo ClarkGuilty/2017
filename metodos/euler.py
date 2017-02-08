@@ -37,7 +37,7 @@ def nDigitsFib(n):
 
 def pDiv(n):
 	if(prime(n)):
-		return [[n]]
+		return [[n],[1]]
 	else:
 		pDiv = []
 		nDiv = []
@@ -79,8 +79,9 @@ def div(n):
 	primo = 0
 	while(primo < len(rta[0])):
 		pos = primo
+		val = 1
 		while(pos <len(rta[1])):
-			it = 0; val = 1
+			it = 0;
 			while(it < rta[1][pos]):
 				val = val * rta[0][pos]
 				div.append(val)
@@ -88,6 +89,12 @@ def div(n):
 			pos += 1
 		primo +=1
 	return div
+
+
+def di(n):
+	
+
+
 
 def eu12():
 	q = 3
