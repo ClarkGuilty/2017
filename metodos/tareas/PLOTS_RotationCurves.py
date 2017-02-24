@@ -15,6 +15,8 @@ VTeo = VGas + VDisk + VBul
 
 f = plt.plot(PRad, Vel)
 plt.plot(PRad, VTeo)
+plt.ylabel('Velocidad')
+plt.xlabel('Radio')
 plt.savefig("heh.png")
 
 
