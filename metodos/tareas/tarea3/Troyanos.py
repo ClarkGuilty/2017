@@ -41,15 +41,15 @@ class Planetas:
             
     def fuerza(self,j):
                 #    for j in range(self.n):
-        fx = 0
-        fy = 0
+        ax = 0
+        ay = 0
         for i in range(2):
-            r2 = np.power(self.x[j+1]-self.sis[i].x[j+1],2) + np.power(self.y[j+1]-self.sis[i].y[j+1],2)*15
+            r2 = np.power(self.x[j+1]-self.sis[i].x[j+1],2) + np.power(self.y[j+1]-self.sis[i].y[j+1],2)
             
-            fx += self.sis[i].masa*(-self.x[j+1]+self.sis[i].x[j+1])/r2
-            fy += self.sis[i].masa*(-self.y[j+1]+self.sis[i].y[j+1])/r2
-        self.fx[j+1] = fx
-        self.fy[j+1] = fy
+            ax += self.sis[i].masa*(-self.x[j+1]+self.sis[i].x[j+1])/np.power(r2,1.5)
+            ay += self.sis[i].masa*(-self.y[j+1]+self.sis[i].y[j+1])/np.power(r2,1.5)
+        self.fx[j+1] = ax
+        self.fy[j+1] = ay
       
       
     def vel(self,j):
@@ -84,7 +84,7 @@ tmin = 0
 tmax = 80
 n = int(tmax/dt)
 t = np.linspace(tmin,tmax*1.0,n)
-v = np.sqrt(1047/100)
+v = np.sqrt(1050/100)
 
 estrella = Planetas(1047,t,dt,0,0,0,0,n)
 planeta = Planetas(1,t,dt,100,0,0,-v,n)
@@ -128,10 +128,13 @@ for i in range(1,n-1):
 
 
 #
-f = plt.plot(estrella.x, estrella.y)
-plt.plot(planeta.x,planeta.y)
-plt.plot(troyano.x,troyano.y)
-#plt.savefig("heh.png")
+f = plt.plot(estrella.x, estrella.y, label = "Estrella")
+plt.scatter(planeta.x[0],planeta.y[0])
+plt.scatter(troyano.x[0],troyano.y[0])
+plt.plot(planeta.x,planeta.y,label = "Planeta")
+plt.plot(troyano.x,troyano.y,label = "Troyano")
+plt.legend(loc=0)
+plt.savefig("heh.png")
 
 
 
