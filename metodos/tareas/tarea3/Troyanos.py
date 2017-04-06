@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from matplotlib.figure import SubplotParams as sp
 
 class Planetas:
 
@@ -79,9 +80,9 @@ class Planetas:
     
     #Aca acaba la clase
 
-dt = 0.001
+dt = 0.01
 tmin = 0
-tmax = 80
+tmax = 2500
 n = int(tmax/dt)
 t = np.linspace(tmin,tmax*1.0,n)
 v = np.sqrt(1050/100)
@@ -89,7 +90,7 @@ v = np.sqrt(1050/100)
 estrella = Planetas(1047,t,dt,0,0,0,0,n)
 planeta = Planetas(1,t,dt,100,0,0,-v,n)
 
-troyano = Planetas(0.005,t,dt,100.0*1/2,100.0*np.sqrt(3)/2, -np.sqrt(3)*v/2, v/2, n)
+troyano = Planetas(0.005,t,dt,100.0*1/2,100.0*np.sqrt(3)/2, np.sqrt(3)*v/2, -v/2, n)
 
 estrella.cargar(planeta,troyano )
 planeta.cargar(estrella,troyano )
@@ -114,8 +115,10 @@ for l in cosas:
 #    for l in cosas:
 #            l.fuerza(0)
 #  
-print n
+totalus = n-1
+
 for i in range(1,n-1):
+    print i
     for heh in cosas:
     
 #      print heh.masa, i
@@ -135,18 +138,40 @@ plt.plot(planeta.x,planeta.y,label = "Planeta")
 plt.plot(troyano.x,troyano.y,label = "Troyano")
 plt.legend(loc=0)
 plt.savefig("heh.png")
+#
+
+he = sp(hspace = 0.5)
+fig = plt.figure(subplotpars = he)
+
+plt.title("")
+    
+ax1 = fig.add_subplot(311)
+
+ax1.plot(estrella.x,estrella.y, label = "Estrella")
+
+    
+h1 = plt.legend(loc='center left', bbox_to_anchor=(1, 0.5))
+    #plt.savefig("Anomalies_SOI_Plot.png",bbox_extra_artists=(h,), bbox_inches='tight')
+
+ax2 = fig.add_subplot(312)
+    
+    
+ax2.plot(planeta.x,planeta.y, label = "Planeta")
+
+    
+h2= plt.legend(loc='center left', bbox_to_anchor=(1, 0.5))
+
+
+
+ax3 = fig.add_subplot(313)
+
+ax3.plot(troyano.x,troyano.y, label = "Troyano")
 
 
 
 
 
-
-
-
-
-
-
-
+h3= plt.legend(loc='center left', bbox_to_anchor=(1, 0.5))
 
 
 
@@ -154,3 +179,5 @@ plt.savefig("heh.png")
 
 
     
+plt.savefig("heh.png",bbox_extra_artists=(h1,h2,), bbox_inches='tight')
+
