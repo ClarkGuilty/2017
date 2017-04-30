@@ -1,0 +1,224 @@
+
+
+\documentclass[notitlepage,letterpaper,12pt]{article} % para articulo
+
+% Este es un comentario <- Los comentarios comienzan con % 
+% todo lo que se escriba hasta el final de la linea será ignorado <- Este es otro comentario
+
+%Lenguaje del documento
+\usepackage[spanish]{babel} % silabea palabras castellanas <- Puedo poner comentarios para explicar de que va este comando en la misma línea
+
+%Encoding
+\usepackage[utf8]{inputenc} % Acepta caracteres en castellano
+\usepackage[T1]{fontenc} % Encoding de salida al pdf
+
+
+\usepackage{textcomp}
+\usepackage{gensymb}
+
+
+%Aquello de las urls
+
+
+%simbolos matemáticos
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+
+% permite insertar gráficos, imágenes y figuras, en pdf o en eps
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{multirow}
+\usepackage[export]{adjustbox}
+% geometría del documento, encabezados y pies de páginas, márgenes
+\usepackage{geometry}     
+\geometry{letterpaper}       % ... o a4paper o a5paper o ... 
+\usepackage{fancyhdr} % encabezados y pies de pg
+\pagestyle{fancy}
+\chead{\bfseries {}}
+\lhead{} % si se omite coloca el nombre de la seccion
+%\rhead{fecha del doc}
+\lfoot{\it Tarea 4 Métodos Computacionales.}
+\cfoot{ }
+\rfoot{Universidad de los Andes}
+%\rfoot{\thepage}
+%margenes
+\voffset = -0.25in
+\textheight = 8.0in
+\textwidth = 6.5in
+\oddsidemargin = 0.in
+\headheight = 20pt
+\headwidth = 6.5in
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0,5pt}
+
+\begin{document}
+\title{Tarea 4 Métodos Computacionales}
+\author{
+\textbf{Javier Alejandro Acevedo Barroso\thanks{e-mail: \texttt{ja.acevedo12@uniandes.edu.co}}}\\
+%\textbf{Boris Nicolás Saenz Rodríguez\thanks{e-mail: \texttt{bn.saenz10@uniandes.edu.co}}}\\
+\textit{Universidad de los Andes, Bogotá, Colombia}\\
+} % Hasta aquí llega el bloque "author" (son dos autores por informe, orden alfabético)
+
+%\date{Versión $\alpha \beta$ fecha del documento}
+\maketitle %Genera el título del documento
+
+
+%Resumen
+
+%\begin{abstract}
+
+%Usando un generador de señales 	CFG253 como fuente de voltaje en el circuito requerido de la practica, se observo la señal que produce un circuito RLC en un osciloscopio, con el objetivo de estudiar su resonancia eléctrica mediante la curva generada a partir de graficar el voltaje en la resistencia vs la frecuencia de oscilacion dada por la fuente  
+
+
+ 
+%\end{abstract}
+\newpage
+%Introducción
+\section{Gráficas}
+
+A continuación, las gráficas de las soluciones numéricas a la ecuación de difusión.
+
+Como todos los escenarios son iguales en $t=0$, se grafica una sola vez las condiciones iniciales \ref{ini}:
+
+\begin{figure}[h!]
+  \centering
+   \includegraphics[scale= 0.8]{t0.png}
+  \caption{Condiciones iniciales}
+  \label{ini}
+\end{figure}
+
+\newpage
+\subsection{Caso 1}
+A continuación, la gráfica de la solución para el caso 1 con condiciones de frontera $T= 50°$ para $t = 100$: 
+\begin{figure}[h!]
+  \centering
+   \includegraphics[scale= 0.8]{c1t100c.png}
+  \caption{Caso 1, condiciones de frontera cerradas. $t = 100s$}
+  \label{c1t100c}
+\end{figure}
+Se espera que a medida que pase el tiempo, se alcance equilibrio térmico.
+\newpage
+
+
+A continuación, la gráfica de la solución para el caso 1 con condiciones de frontera $T= 50°$ para $t = 2500s$: Se observa que " el pico" tiene un valor máximo de 50.000012, por lo tanto, se ha alcanzado prácticamente equilibrio térmico.
+
+\begin{figure}[h!]
+  \centering
+   \includegraphics[scale= 0.8]{c1t2500c.png}
+  \caption{Caso 1, condiciones de frontera cerradas. $t = 2500s$}
+  \label{fig: cobre}
+\end{figure}
+\newpage
+
+
+A continuación, la gráfica de la solución para el caso 1 con condiciones de frontera periódicas para $t = 100$: Se observa que, si bien se ha difundido la temperatura del pico inicial, en general ha habido pérdida de temperatura. Esto se debe a la falta de aislamiento térmico que prestaban las condiciones de frontera cerradas.
+\begin{figure}[h!]
+  \centering
+   \includegraphics[scale= 0.8]{c1t100p.png}
+  \caption{Caso 1, condiciones de frontera periódicas. $t = 100s$}
+  \label{c1t100p}
+\end{figure}
+Se espera que a medida que pase el tiempo, se alcance equilibrio térmico.
+\newpage
+
+
+A continuación, la gráfica de la solución para el caso 1 con condiciones de frontera periódicas para $t = 2500s$: Se observa que "el pico" se ha trasladado a los bordes (que por ser periodicos, son continuos), pero que en general se ha perdido temperatura.
+
+\begin{figure}[h!]
+  \centering
+   \includegraphics[scale= 0.8]{c1t2500p.png}
+  \caption{Caso 1, condiciones de frontera Periodicas. $t = 2500s$}
+  \label{fig: cobre}
+\end{figure}
+
+\newpage
+\subsection{Caso 2}
+A continuación, la gráfica de la solución para el caso 2 con condiciones de frontera $T= 50°$ para $t = 100$: 
+\begin{figure}[h!]
+  \centering
+   \includegraphics[scale= 0.8]{c2t100c.png}
+  \caption{Caso 2, condiciones de frontera cerradas. $t = 100s$}
+  \label{c1t100c}
+\end{figure}
+La fuente constante de calor calienta el objeto. No hay pérdida de temperatura pues al tener condiciones de frontera cerradas, es como si estuviera aislado térmicamente.
+\newpage
+
+
+A continuación, la gráfica de la solución para el caso 2 con condiciones de frontera $T= 50°$ para $t = 2500s$: Se observa que ha aumentado la temperatura del objeto globalmente.
+
+\begin{figure}[h!]
+  \centering
+   \includegraphics[scale= 0.8]{c2t2500c.png}
+  \caption{Caso 2, condiciones de frontera cerradas. $t = 2500s$}
+  \label{fig: cobre}
+\end{figure}
+\newpage
+
+
+A continuación, la gráfica de la solución para el caso 2 con condiciones de frontera periódicas para $t = 100$: Se observa que, si bien se ha difundido la temperatura del pico inicial, también ha habido pérdida de temperatura. Esto se debe a la falta de aislamiento térmico que prestaban las condiciones de frontera cerradas.
+\begin{figure}[h!]
+  \centering
+   \includegraphics[scale= 0.8]{c2t100p.png}
+  \caption{Caso 2, condiciones de frontera periódicas. $t = 100s$}
+  \label{c1t100p}
+\end{figure}
+Se espera que a medida que pase el tiempo, haya una oscilación entre la temperatura provista por la fuente de calor y la temperatura perdida por la difusión.
+\newpage
+
+
+A continuación, la gráfica de la solución para el caso 2 con condiciones de frontera periódicas para $t = 2500s$: Se observa que persiste la oscilación de las temperaturas. Los puntos lejanos a la fuente de calor, han tendido a perder más temperatura que los cercanos a la fuente de calor.
+
+\begin{figure}[h!]
+  \centering
+   \includegraphics[scale= 0.8]{c2t2500p.png}
+  \caption{Caso 2, condiciones de frontera Periodicas. $t = 2500s$}
+  \label{fig: cobre}
+\end{figure}
+
+\newpage
+\subsection{Temperatura Media}
+A continuación las gráficas de la temperatura media para los diferentes casos y condiciones de frontera.
+
+Para el caso 1 con condiciones de frontera cerradas, se observó que la temperatura tendía a un equilibrio térmico, por lo tanto es natural que la gráfica de temperatura media tienda a ese equilibrio también.
+\begin{figure}[h!]
+  \centering
+   \includegraphics[scale= 0.8]{TmeanC1c.png}
+  \caption{Temperatura media, caso 1, condiciones de frontera cerradas.}
+  \label{fig: cobre}
+\end{figure}
+
+\newpage
+
+Para el caso 1 con condiciones de frontera periódicas, se observó que la temperatura tendía a disiparse, por lo tanto es natural que la gráfica de temperatura media tienda a 0.
+\begin{figure}[h!]
+  \centering
+   \includegraphics[scale= 0.8]{TmeanC1p.png}
+  \caption{Temperatura media, caso 1, condiciones de frontera periodicas.}
+  \label{fig: cobre}
+\end{figure}
+\newpage
+
+
+
+Para el caso 2 con condiciones de frontera cerradas, se observó que la temperatura tendía a aumentar, por lo tanto es natural que la gráfica de temperatura media tienda a crecer hacia un nuevo equilibrio térmico.
+\begin{figure}[h!]
+  \centering
+   \includegraphics[scale= 0.8]{TmeanC2c.png}
+  \caption{Temperatura media, caso 2, condiciones de frontera cerradas.}
+  \label{fig: cobre}
+\end{figure}
+\newpage
+
+Para el caso 2 con condiciones de frontera periódicas, se observó que la temperatura tendía a oscilar por la influencia de la fuente de calor y la pérdida de temperatura por la difusión. Sin embargo, la temperatura media tiende a crecer convexamente.
+\begin{figure}[h!]
+  \centering
+   \includegraphics[scale= 0.8]{TmeanC2p.png}
+  \caption{Temperatura media, caso 1, condiciones de frontera cerradas.}
+  \label{fig: cobre}
+\end{figure}
+
+
+
+\end{document}
