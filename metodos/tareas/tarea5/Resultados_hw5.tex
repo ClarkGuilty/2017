@@ -1,0 +1,167 @@
+\documentclass[notitlepage,letterpaper,12pt]{article} % para articulo
+
+% Este es un comentario <- Los comentarios comienzan con % 
+% todo lo que se escriba hasta el final de la linea será ignorado <- Este es otro comentario
+
+%Lenguaje del documento
+\usepackage[english]{babel} % silabea palabras castellanas <- Puedo poner comentarios para explicar de que va este comando en la misma línea
+
+%Encoding
+\usepackage[utf8]{inputenc} % Acepta caracteres en castellano
+\usepackage[T1]{fontenc} % Encoding de salida al pdf
+
+%Triunfó el mal
+\usepackage[normalem]{ulem}
+\useunder{\uline}{\ul}{}
+\providecommand{\e}[1]{\ensuremath{\times 10^{#1}}}
+
+\usepackage{textcomp}
+\usepackage{gensymb}
+
+
+%Hipertexto
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=blue]{hyperref} % navega por el doc: hipertexto y links
+
+%Aquello de las urls
+\usepackage{url} 
+
+%simbolos matemáticos
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+%\usepackage{physics} 
+
+% permite insertar gráficos, imágenes y figuras, en pdf o en eps
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{multirow}
+\usepackage[export]{adjustbox}
+% geometría del documento, encabezados y pies de páginas, márgenes
+\usepackage{geometry}     
+\geometry{letterpaper}       % ... o a4paper o a5paper o ... 
+\usepackage{fancyhdr} % encabezados y pies de pg
+\pagestyle{fancy}
+\chead{\bfseries {}}
+\lhead{} % si se omite coloca el nombre de la seccion
+%\rhead{fecha del doc}
+\lfoot{\it Proyecto Semestral: Robot buscador}
+\cfoot{ }
+\rfoot{Universidad de los Andes}
+%\rfoot{\thepage}
+%margenes
+\voffset = -0.25in
+\textheight = 8.0in
+\textwidth = 6.5in
+\oddsidemargin = 0.in
+\headheight = 20pt
+\headwidth = 6.5in
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0,5pt}
+
+\begin{document}
+\title{Métodos Computacionales: Tarea 5
+}
+\author{
+\textbf{Javier Alejandro Acevedo Barroso\thanks{e-mail: \texttt{ja.acevedo12@uniandes.edu.co}}}\\
+\textit{Universidad de los Andes, Bogotá, Colombia}\\
+} % Hasta aquí llega el bloque "author" (son dos autores por informe, orden alfabético)
+
+%\date{Versión $\alpha \beta$ fecha del documento }
+\maketitle %Genera el título del documento
+
+
+
+%Introducción
+\section{Canal Iónico}
+
+Mediante MCMC se calculó el circulo más grande posible en en plano con moléculas dadas a partir de un archivo de texto. Se graficó tanto el plano con las moléculas y el círculo más grande entre ellas, como el histograma en 2d del camino tomado por el MCMC.
+
+\subsection{Primer archivo de datos}
+
+
+\begin{figure}[h]
+  \centering
+   \includegraphics[scale= 0.5]{g1.png}
+  \caption{Gráfica del plano de moléculas junto al poro propuesto (círculo más grande) entre ellas para el primer archivo de datos. Se puede observar que el círculo respeta el 1\AA  del radio de las moléculas. La gráfica incluye los resultados finales obtenido en el .c}
+  \label{g1d1}
+\end{figure}
+\newpage
+
+\begin{figure}[h]
+  \centering
+   \includegraphics[scale= 0.8]{his1.png}
+  \caption{Histograma de las coordenadas $x$,$y$ para el centro del círculo. Es notorio que el histograma tiende rápidamente a la posición final del círculo. Si hubiera varias posibles posiciones o varias posiciones con radios no muy diferentes. Para el primer archivo de texto la caminata merodeó solo por una región. }
+  \label{g2d1}
+\end{figure}
+
+
+
+\subsection{Segundo archivo de datos}
+
+
+\begin{figure}[h]
+  \centering
+   \includegraphics[scale= 0.5]{g2.png}
+  \caption{Gráfica del plano de moléculas junto al poro propuesto (círculo más grande) entre ellas para el segundo archivo de datos. Se puede observar que el círculo respeta el 1\AA  del radio de las moléculas. La gráfica incluye los resultados finales obtenido en el .c. La posición del centro del circulo depende fuertemente de la ejecución, pues hay dos regiones separadas con resultados muy similares}
+  \label{g1d1}
+\end{figure}
+\newpage
+
+\begin{figure}[h]
+  \centering
+   \includegraphics[scale= 0.8]{his2.png}
+  \caption{Histograma de las coordenadas $x$,$y$ para el centro del círculo. Es notorio que el histograma tiende rápidamente a la posición final del círculo. En el caso del segundo archivo de datos, la posición del círculo más grande depende de cada ejecución. Existen dos posiciones donde el radio máximo es bastante cercano, al mirar el histograma, se observa que la caminata merodea las dos posiciones. La posición del circulo de la gráfica anterior puede ser cualquiera de las dos pues son valores muy cercanos. }
+  \label{g2d1}
+\end{figure}
+
+%\bibliographystyle{unsrt} % estilo de las referencias 
+%\bibliography{mybib.bib} %archivo con los datos de los artículos citados
+
+
+%\bibliography{mybib.bib} %archivo con los datos de los artículos citados
+
+% Forma Manual de hacer las referencias
+% Se escribe todo a mano...
+% Descomentar y jugar
+
+%\begin{thebibliography}{99}
+%\bibitem{Narasimhan1993}Narasimhan, M.N.L., (1993), \textit{Principles of
+%Continuum Mechanics}, (John Willey, New York) p. 510.
+
+%\bibitem{Demianski1985}Demia\'{n}ski M., (1985), \textit{Relativistic
+%Astrophysics,} in International Series in Natural Philosophy, Vol 110, Edited
+%by \textit{D. Ter Haar}, (Pergamon Press, Oxford).
+%\end{thebibliography}
+
+
+%Fin del documento
+\end{document}
+
+
+Así mismo, el factor de calidad $Q$ está dado por:
+\begin{equation}
+Q = \frac{1}{R} \sqrt\frac{L}{C}
+\end{equation}
+Por lo tanto, el valor del factor de calidad
+
+%Todo lo que escriba aquí será ignorado, aunque no fuera un comentario...
+\begin{table}[h!]
+\centering
+\begin{tabular}{|l|l|l|}
+\hline
+2 cm   & 4 cm   & 8 cm   \\ \hline
+175,77 & 129,77 & 88,77  \\ \hline
+223,77 & 129,77 & 114,77 \\ \hline
+219,77 & 134,77 & 77,77  \\ \hline
+190,77 & 120,77 & 83,77  \\ \hline
+\end{tabular}
+\caption{Número de colisiones a diferentes distancias en cinco minutos.}
+\label{tiempoFijo}
+\end{table}
+
+\begin{figure}[h]
+  \centering
+   \includegraphics[scale= 0.8]{jairos.png}
+  \caption{Gráfica del periodo de la pulsación para diferentes razones entre las frecuencias naturales utilizando una pesa de 200g. Es de resaltar que el pico no está centrado en 1 pero está bastante cerca. Esto probablemente se debe a errores a la hora de medir la longitud de los péndulos.}
+  \label{fig: cobre}
+\end{figure}
