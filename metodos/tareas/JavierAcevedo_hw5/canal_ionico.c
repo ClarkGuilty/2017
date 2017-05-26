@@ -112,7 +112,8 @@ if(f2 == NULL){
           
     //Corre el segundo MCMC.
     iter = 200000;
-    for(i = 0; i<iter;i++){
+    i = 0;
+    while(i<iter){
           fprintf(par2, "%f %f\n", x, y);
           nP(0.3);
           double alpha = func(newx,newy)/func(x,y) ;
@@ -129,6 +130,7 @@ if(f2 == NULL){
                                y = newy;
                                   }
                  }
+                 i++;
           }
     
 
